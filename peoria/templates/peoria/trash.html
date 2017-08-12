@@ -1,0 +1,105 @@
+{% extends 'peoria/base.html' %}
+
+
+{% block title %}
+Peoria Trash Cans
+{% endblock %}
+
+<script src="//d3js.org/d3.v3.min.js"></script>
+
+
+{% load static %}
+{% block body %}
+    <h1>Peoria HOME 0.1</h1>
+    Hello, welcome to Peoria website!!!</br>
+    Go Urban Unicorns!!!
+
+       <script>
+            
+                var width = 1050,
+                   height  = 1000,
+                   format = d3.format(",d"),
+                   color = d3.scale.category20b(); 
+               
+               //choosing the correct padding is crucial because the game titles 
+               //are so long they are over the top of each other
+               var bubble = d3.layout.pack()
+                   .sort(null)
+                   .size([width, height])
+                   .padding(80);
+               var svg = d3.select("body")
+                   .append("svg")
+                   .attr("width", width)
+                   .attr("height", height)
+                   .attr("class", "bubble");
+           
+               //adding some random movement
+                var movement = d3.random.normal();
+        
+                
+                //colors of the bubbles will be inside this color scale depending on 
+                //the number of games sold
+                var color = d3.scale.linear()
+                    .domain([0,10])
+                    .range(["red", "blue"]);
+                    
+                    
+                //Takes the square root so the area is reflective of the underlying
+                //relationship between the amount of video games
+                var size = d3.scale.sqrt()
+                        .domain([0,35])
+                        .range([0,35]);
+                
+                
+        d3.csv("{% static 'peoria/busRoute.csv'%}", function(error, data){
+                if (error) throw error;
+                //convert numerical values from strings to numbers
+                data = data.map(function(d){ d.value = parseFloat(d.Amount); return d; });
+                //bubbles needs very specific format, convert data to this.
+                var nodes = bubble.nodes({children:data}).filter(function(d) { return !d.children; });
+                //automatically creates the g svg element
+                //.enter() because it is more data elements than dom elements
+                var bubbles = svg.append("g")
+                    .attr("transform", "translate(0,0)")
+                    .selectAll(".bubble")
+                    .data(nodes)
+                    .enter();
+                //create the bubbles
+                //need to take the squareroot from the size scale,
+                //cause the area is pi*r^2
+                //color is also a function of a scale.
+                bubbles.append("circle")
+                    .attr("r", function(d){ return size(d.value); })
+                    .attr("cx", function(d){ return d.x - 30; })
+                    .attr("cy", function(d){ return d.y - 30; })
+                    .style("fill", function(d) { return color(d.value); })
+                    .transition()
+                        .duration(2000)
+                        .attr("cx", function(d){ return d.x + movement(5,5); })
+                        .attr("cy", function(d){ return d.y + movement(5,5); });
+                //format the text for each bubble
+                //Adds the name of each text
+                bubbles.append("text")
+                    .attr("x", function(d){ return d.x ; })
+                    .attr("y", function(d){ return d.y - 32  ; })
+                    .attr("text-anchor", "middle")
+                    .text(function(d){return (d.Name + ": " + (d.value));})
+                    .style({
+                        "fill":"black", 
+                        "font-family":"Helvetica Neue, Helvetica, Arial, san-serif",
+                        "font-size": "11px"
+                    })
+                    .transition()
+                        .duration(2000)
+                        .attr("x", function(d){ return d.x + movement(5,5); });
+        });
+            
+            
+        </script>
+    <h2>
+    <a href = "{%  url 'peoria:gripe-list' %}">Submit your gripe!!!</a>
+    </h2>
+
+
+
+{% endblock %}
