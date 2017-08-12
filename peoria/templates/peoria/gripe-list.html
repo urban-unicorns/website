@@ -5,50 +5,6 @@
 
 
 
-        <script>
-
-
-
-        function initMap() {
-
-            var uluru = {lat: 40.6936, lng: -89.5890};
-
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 12,
-                center: uluru
-            });
-
-
-            var marker = new google.maps.Marker({
-                position: uluru,
-                map: map
-            });
-
-
-
-
-            {% for gripe in gripe_list  %}
-                var marker = new google.maps.Marker({
-                    position: {lat:{{ gripe.latitude }}, lng:{{ gripe.longitude }}},
-                    label: 'gripe!',
-                    map: map,
-                    icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
-                });
-            {% endfor %}
-
-        }
-
-        </script>
-
-
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYEjsF90Cthd2KilWY9lS96vXC3I1M7wg&callback=initMap">
-    </script>
-
-
-
-
-
 
 
 
@@ -83,7 +39,7 @@
 
 
                     </td>
-                    <td>{{ gripe.name }}</td>
+                    <td><a href="{% url 'peoria:gripe-detail' gripe.id %}">{{ gripe.name }}</td>
                     <td>{{ gripe.description }}</td>
                     <td>{{ gripe.address }}</td>
                     <td>{{ gripe.votes }}</td>

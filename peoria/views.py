@@ -47,7 +47,7 @@ class GripeDetail(generic.DetailView):
 class GripeCreate(CreateView):
     model = Gripe
     fields = ['name',
-              'location',
+              'address',
               'description',
     ]
 
@@ -55,8 +55,10 @@ class GripeCreate(CreateView):
 class GripeUpdate(UpdateView):
     model = Gripe
     fields = ['name',
-              'location',
+              'address',
               'description',
+              'latitude',
+              'longitude',
               ]
 
 class GripeDelete(DeleteView):
