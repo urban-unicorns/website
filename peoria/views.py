@@ -8,6 +8,9 @@ from .models import Gripe
 def home(request):
     return render(request, 'peoria/home.html')
 
+def trash(request):
+    return(render(request, 'peoria/trash.html'))
+
 
 class GripeList(generic.ListView):
     template_name = 'peoria/gripe-list.html'
