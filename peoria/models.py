@@ -21,3 +21,21 @@ class Gripe(models.Model):
         ordering = ['-votes']
 
 
+
+class Project(models.Model):
+    latitude = models.DecimalField(max_digits=10, decimal_places=6)
+    longitude = models.DecimalField(max_digits=10, decimal_places=6)
+    type = models.CharField(max_length=100)
+    filename = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.type + str(self.pk)
+
+    def get_absolute_url(self):
+        return reverse('peoria:project-detail', kwargs={'pk':self.pk})
+
+
+
+
+

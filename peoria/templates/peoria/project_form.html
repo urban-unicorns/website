@@ -1,7 +1,7 @@
 {% extends 'peoria/base.html' %}
-{% block  title %} Gripe Form {% endblock %}
+{% block  title %} Project Form {% endblock %}
 {% block body %}
-    <h2> Gripe Form </h2>
+    <h2> Project Form </h2>
     <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% include 'peoria/form-template.html' %}
