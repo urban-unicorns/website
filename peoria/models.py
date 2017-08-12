@@ -7,9 +7,13 @@ from django.core.urlresolvers import reverse
 
 class Gripe(models.Model):
     name = models.CharField(max_length=100)
-    location = models.CharField(max_length=100)
+    address = models.CharField(max_length=200, null=True, blank=True)
     description = models.TextField()
     votes = models.IntegerField(default=0)
+    latitude = models.DecimalField(max_digits=10, decimal_places=6, default=40.703545)
+    longitude = models.DecimalField(max_digits=10, decimal_places=6, default=-89.579086)
+
+
 
     def __str__(self):
         return self.name
@@ -23,8 +27,8 @@ class Gripe(models.Model):
 
 
 class Project(models.Model):
-    latitude = models.DecimalField(max_digits=10, decimal_places=6)
-    longitude = models.DecimalField(max_digits=10, decimal_places=6)
+    latitude = models.DecimalField(max_digits=10, decimal_places=6, default=40.703545)
+    longitude = models.DecimalField(max_digits=10, decimal_places=6, default=-89.579086)
 
     PAVEMENT = 'PV'
     BIKE = 'BK'
