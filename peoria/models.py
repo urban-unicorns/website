@@ -19,3 +19,5 @@ class Gripe(models.Model):
 
     class Meta:
         ordering = ['-votes']
+
+

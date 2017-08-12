@@ -10,7 +10,10 @@ Peoria Home
 
 
 {% block body %}
-    <h1>Peoria HOME 0.1</h1>
+
+
+
+        <h1>Peoria HOME 0.1</h1>
     Hello, welcome to Peoria website!!!</br>
     Go Urban Unicorns!!!
 
@@ -21,33 +24,40 @@ Peoria Home
 
 
 
-    <iframe width="600" height="450" frameborder="0" style="border:0"
-            src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJrXlYU1xZCogR24B9azL0-8o&key=AIzaSyAYEjsF90Cthd2KilWY9lS96vXC3I1M7wg"
-            allowfullscreen></iframe>
 
 
 
-<div id="map"></div>
+
+<html>
+  <head>
+    <style>
+       #map {
+        height: 400px;
+        width: 75%;
+       }
+    </style>
+  </head>
+  <body>
+    <h3>Peoria Infrastructure Projects </h3>
+    <div id="map"></div>
     <script>
-
       function initMap() {
-        var myLatLng = {lat: 40.7, lng: -89.6};
-
+        var uluru = {lat: 40.6936, lng: -89.5890};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: myLatLng
+          zoom: 12,
+          center: uluru
         });
-
         var marker = new google.maps.Marker({
-          position: myLatLng,
-          map: map,
-          title: 'Hello World!'
+          position: uluru,
+          map: map
         });
       }
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYEjsF90Cthd2KilWY9lS96vXC3I1M7wg&callback=initMap">
     </script>
+  </body>
+</html>
 
 
 

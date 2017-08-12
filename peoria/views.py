@@ -6,7 +6,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Gripe
 
 def home(request):
-    return render(request, 'peoria/home.html')
+    return render(request, 'peoria/home2.html')
 
 def trash(request):
     return(render(request, 'peoria/trash.html'))
