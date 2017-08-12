@@ -1,0 +1,14 @@
+{% extends 'peoria/base.html' %}
+{% block  title %} Gripe Form {% endblock %}
+{% block body %}
+    <h2> Gripe Form </h2>
+    <form class="form-horizontal" action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% include 'peoria/form-template.html' %}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+    </form>
+{% endblock %}

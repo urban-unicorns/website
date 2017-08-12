@@ -1,0 +1,45 @@
+{% extends 'peoria/base.html' %}
+{%  block body %}
+
+    <h1>Gripe List</h1>
+
+
+<div class="container">
+
+        <a href="{% url 'peoria:gripe-create' %}">
+        <span class="glyphicon glyphicon-plus"></span>Create New Gripe
+    </a>
+
+</div>
+
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Location</th>
+                <th>Votes</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for gripe in gripe_list %}
+                <tr>
+                    <td>{{ gripe.name }}</td>
+                    <td>{{ gripe.description }}</td>
+                    <td>{{ gripe.location }}</td>
+                    <td>{{ gripe.votes }}</td>
+
+                </tr>
+
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+{% endblock %}
