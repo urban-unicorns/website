@@ -10,9 +10,11 @@
     </title>
 
     {% load static %}
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'peoria/style.css' %}" />
 </head>
 
 
@@ -44,6 +46,11 @@
                     </a>
                 </li>
 
+                <li class="" >
+                    <a href="{% url 'peoria:trash' %}">
+                        <span class="glyphicon glyphicon-tag"></span> Trash
+                    </a>
+                </li>
 
             </ul>
         </div>
@@ -68,3 +75,9 @@
 {% endblock %}
 </body>
 
+<!-- Footer -->
+   <footer>
+       <div class="container text-center">
+           <p><a href="https://xd.adobe.com/view/f6c99c6b-420c-4b9a-ac0c-693a7c73246a/" target="blank_">Copyright</a> &copy; 2017 desig|n&#275| Urban Unicorns - All Rights Reserved.</p>
+       </div>
+   </footer>

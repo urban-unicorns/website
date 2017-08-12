@@ -5,44 +5,122 @@
 Peoria Home
 {% endblock %}
 
-
-
-
-
 {% block body %}
-
-
-
-        <h1>Peoria HOME 0.1</h1>
-    Hello, welcome to Peoria website!!!</br>
-    Go Urban Unicorns!!!
-
-
-    <h2>
-    <a href = "{%  url 'peoria:gripe-list' %}">Submit your gripe!!!</a>
-    </h2>
-
-
-
-
-
 
 
 <html>
   <head>
     <style>
        #map {
-        height: 400px;
-        width: 75%;
+        height: 500px;
+        width: 100%;
+        align-self: center;
        }
     </style>
+
   </head>
-  <body>
+
+
+<body>
+
+  <div class="jumbotron text-center">
+    <img src="" alt="logo">
+    <h1>Build Peoria</h1>
+    <p>Infrastructure is the new sexy.</p>
+  </div>
+
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Maps of Infrastructure</h3>
+        <p>Here you can find what is going on in Peoria.</p>
+        <p>Have fun zooming!</p>
+        <a href="#" class="btn btn-info" role="button">Link Button</a>
+      </div>
+      <div class="col-sm-4">
+        <h3>Peoria Cares</h3>
+        <p>Tell us what we need to work on.</p>
+        <p>Upload a picture as well.</p>
+        <a href="{%  url 'peoria:gripe-list' %}" class="btn btn-info" role="button">Submit your Gripes!</a>
+
+      </div>
+      <div class="col-sm-4">
+        <h3>Rate that Infrastructure</h3>
+        <p>Up-vote your favorite infrastructure projects.</p>
+        <p>The hottest ones are going to be our priorities.</p>
+        <a href="#" class="btn btn-info" role="button">Link Button</a>
+      </div>
+    </div>
+  </div>
+
+    <div class="container text-center">
+      <div class="row">
+        <div class="col-">
     <h3>Peoria Infrastructure Projects </h3>
     <div id="map"></div>
+        </div>
+      </div>
+    </div>
+
+
+<!--ACCOUNT SIGN UP-->
+<div class="bg-primary container text-center">
+  <h2>Account Information for Build Peoria </h2>
+<div class="row">
+    <form action="/action_page.php">
+      <div class="col-xs-4">
+      <label for="name">Name:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter name" name="name">
+      </div>
+      <div class="col-xs-4">
+      <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      </div>
+      <div class="col-xs-4">
+      <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      </div>
+      <div class="col-xs-4">
+      <label for="Home Address">Home Address:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      </div>
+      <div class="col-xs-4">
+      <label for="Work Address">Work Address:</label>
+        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+      </div>
+</div>
+<div class="row text-center">
+      <div class="checkbox">
+        <label><input type="checkbox" name="remember"> Remember me</label>
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+  </div>
+</div>
+
+<div class="container text-center">
+<h1>Who are you?</h1>
+<form action="/action_page.php" method="get">
+  <input type="checkbox" name="CitizenType" value="Resident"> Peoria Resident<br>
+  <input type="checkbox" name="CitizenType" value="BusinessOwner" > Business Owner<br>
+    <input type="checkbox" name="CitizenType" value="AreaVisitor" > Visitor to Peoria <br>
+  <button type="submit" class="btn btn-default" value="Submit">Submit</button>
+</form>
+</div>
+
+<div class="container text-center">
+<h1>How do you roll?</h1>
+<form action="/action_page.php" method="get">
+  <input type="checkbox" name="Howtheyroll" value="Car"> Car <br>
+  <input type="checkbox" name="Howtheyroll" value="Public Transit" > Public Transit<br>
+    <input type="checkbox" name="Howtheyroll" value="Walk/Bike" > Walking/Biking <br>
+  <button type="submit" class="btn btn-default" value="Submit">Submit</button>
+</form>
+</div>
 
 
 
+<!--SCRIPT-->
     <script>
 
 
