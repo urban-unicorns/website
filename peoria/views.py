@@ -6,8 +6,20 @@ from django.http import HttpResponse, HttpResponseRedirect
 from .models import Gripe, Project
 
 def home(request):
-    myProjects = Project.objects.all()
-    context = {'myProjects': myProjects}
+    myPavementProjects = Project.objects.filter(type='PV')
+    myBikeProjects = Project.objects.filter(type='BK')
+    myTrashCanProjects = Project.objects.filter(type='TC')
+    myRampsProjects = Project.objects.filter(type='RA')
+    mySideWalkProjects = Project.objects.filter(type='SW')
+
+
+
+    context = {'myPavementProjects': myPavementProjects,
+               'myBikeProjects': myBikeProjects,
+               'myTrashCanProjects':myTrashCanProjects,
+               'myRampsProjects':myRampsProjects,
+               'mySideWalkProjects':mySideWalkProjects,
+               }
     return render(request, 'peoria/home2.html', context)
 
 def trash(request):

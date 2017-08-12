@@ -62,17 +62,60 @@ Peoria Home
           map: map
         });
 
-            {% for project in myProjects  %}
+
+
+
+            {% for project in myPavementProjects  %}
                 var marker = new google.maps.Marker({
                 position: {lat:{{ project.latitude }} , lng:{{ project.longitude }} },
-
-                map: map
+                label: 'pavement project',
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/blue-dot.png',
         });
-
-
-
-
             {% endfor %}
+
+
+            {% for project in myBikeProjects  %}
+                var marker = new google.maps.Marker({
+                position: {lat:{{ project.latitude }} , lng:{{ project.longitude }} },
+                label: 'bike project',
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+        });
+            {% endfor %}
+
+            {% for project in myTrashCanProjects  %}
+                var marker = new google.maps.Marker({
+                position: {lat:{{ project.latitude }} , lng:{{ project.longitude }} },
+                label: 'trashcan project',
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/yellow-dot.png',
+
+        });
+            {% endfor %}
+
+
+            {% for project in myRampsProjects  %}
+                var marker = new google.maps.Marker({
+                position: {lat:{{ project.latitude }} , lng:{{ project.longitude }} },
+                label: 'ramp project',
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png',
+
+        });
+            {% endfor %}
+
+
+            {% for project in mySideWalkProjects  %}
+                var marker = new google.maps.Marker({
+                position: {lat:{{ project.latitude }} , lng:{{ project.longitude }} },
+                label: 'sidewalk project',
+                map: map,
+                icon: 'http://maps.google.com/mapfiles/ms/icons/orange-dot.png',
+
+        });
+            {% endfor %}
+
 
 
       }

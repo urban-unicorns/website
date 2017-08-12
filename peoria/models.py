@@ -25,8 +25,21 @@ class Gripe(models.Model):
 class Project(models.Model):
     latitude = models.DecimalField(max_digits=10, decimal_places=6)
     longitude = models.DecimalField(max_digits=10, decimal_places=6)
-    type = models.CharField(max_length=100)
-    filename = models.CharField(max_length=100)
+
+    PAVEMENT = 'PV'
+    BIKE = 'BK'
+    TRASHCANS = 'TC'
+    RAMPS = 'RA'
+    SIDEWALKS = 'SW'
+    TYPE_CHOICES = (
+        (PAVEMENT, 'Pavement'),
+        (BIKE, 'Bike'),
+        (TRASHCANS, 'Trashcans'),
+        (RAMPS, 'Ramps'),
+        (SIDEWALKS, 'Sidewalks'),
+    )
+    type = models.CharField(max_length=100, choices=TYPE_CHOICES)
+    filename = models.CharField(max_length=100, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
 
     def __str__(self):
