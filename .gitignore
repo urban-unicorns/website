@@ -1,0 +1,7 @@
+.idea/
+*.py[cod]
+__pycache__/
+*.out
+*.sh
+*.swp
+
