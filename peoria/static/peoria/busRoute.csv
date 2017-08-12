@@ -1,0 +1,14 @@
+,Bus__Route,Location,Trash_Cont,Bus_Stop_L,Amount,Name
+0,Rt 1,5,5,5,5,Route_Number_1
+1,Rt 10,3,3,3,3,Route_Number_10
+2,Rt 11,4,4,4,4,Route_Number_11
+3,Rt 12,1,1,1,1,Route_Number_12
+4,Rt 13,1,1,1,1,Route_Number_13
+5,Rt 14,5,5,5,5,Route_Number_14
+6,Rt 15,1,1,1,1,Route_Number_15
+7,Rt 2,2,2,2,2,Route_Number_2
+8,Rt 3,1,1,1,1,Route_Number_3
+9,Rt 4,3,3,3,3,Route_Number_4
+10,Rt 5,4,4,4,4,Route_Number_5
+11,Rt 6,3,2,3,3,Route_Number_6
+12,Rt 7,3,3,3,3,Route_Number_7
