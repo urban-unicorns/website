@@ -40,19 +40,51 @@ Peoria Home
   <body>
     <h3>Peoria Infrastructure Projects </h3>
     <div id="map"></div>
+
+
+
     <script>
-      function initMap() {
+
+
+
+        function initMap() {
+
         var uluru = {lat: 40.6936, lng: -89.5890};
+
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 12,
           center: uluru
         });
+
+
         var marker = new google.maps.Marker({
           position: uluru,
           map: map
         });
+
+            {% for project in myProjects  %}
+                var marker = new google.maps.Marker({
+                position: {lat:{{ project.latitude }} , lng:{{ project.longitude }} },
+
+                map: map
+        });
+
+
+
+
+            {% endfor %}
+
+
       }
+
+
+
+
     </script>
+
+
+
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYEjsF90Cthd2KilWY9lS96vXC3I1M7wg&callback=initMap">
     </script>

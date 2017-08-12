@@ -1,0 +1,14 @@
+{% extends 'peoria/base.html' %}
+{%  block body %}
+
+Gripe Detail
+
+    <h1>{{ object }}</h1>
+
+    <h2>{{ object.description }}</h2>
+
+    <a href = "{%  url 'peoria:project-update' object.id %}">Edit</a>
+    <a href = "{%  url 'peoria:project-delete' object.id %}">Delete</a>
+
+
+{% endblock %}

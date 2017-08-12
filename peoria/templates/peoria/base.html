@@ -10,12 +10,48 @@
     </title>
 
     {% load static %}
-
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+
+
+<nav class="navbar-inverse">
+    <div class="container-fluid">
+        <!--- Logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'peoria:home' %}" >Peoria 0.1</a>
+        </div>
+
+        <!--- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+
+                <li class="" >
+                    <a href="{% url 'peoria:project-list' %}">
+                        <span class="glyphicon glyphicon-tag"></span> Projects
+                    </a>
+                </li>
+
+                <li class="" >
+                    <a href="{% url 'peoria:gripe-list' %}">
+                        <span class="glyphicon glyphicon-tag"></span> Gripes
+                    </a>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
 
 	<script src="//d3js.org/d3.v3.min.js"></script>
 
@@ -24,7 +60,6 @@
 
 
 
-</head>
 
 
 

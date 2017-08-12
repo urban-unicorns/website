@@ -3,10 +3,12 @@ from django.views import generic
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponse, HttpResponseRedirect
-from .models import Gripe
+from .models import Gripe, Project
 
 def home(request):
-    return render(request, 'peoria/home2.html')
+    myProjects = Project.objects.all()
+    context = {'myProjects': myProjects}
+    return render(request, 'peoria/home2.html', context)
 
 def trash(request):
     return(render(request, 'peoria/trash.html'))
@@ -54,4 +56,42 @@ def GripeUpvote(request, pk):
         selected_gripe.save()
 
         return HttpResponseRedirect(reverse('peoria:gripe-list'))
+
+
+
+class ProjectList(generic.ListView):
+    template_name = 'peoria/project-list.html'
+    context_object_name = 'project_list'
+
+    def get_queryset(self):
+        return Project.objects.all()
+
+
+class ProjectDetail(generic.DetailView):
+    model = Project
+    template_name = 'peoria/project-detail.html'
+
+
+class ProjectCreate(CreateView):
+    model = Project
+    fields = ['latitude',
+              'longitude',
+              'type',
+              'description',
+    ]
+
+
+class ProjectUpdate(UpdateView):
+    model = Project
+    fields = ['latitude',
+              'longitude',
+              'type',
+              'description',
+    ]
+
+
+
+class ProjectDelete(DeleteView):
+    model = Project
+    success_url = reverse_lazy('peoria:project-list')
 

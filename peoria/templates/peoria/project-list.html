@@ -1,0 +1,48 @@
+{% extends 'peoria/base.html' %}
+{%  block body %}
+
+    <h1>!City Goverment Access Only!</h1>
+
+
+<div class="container">
+
+        <a href="{% url 'peoria:project-create' %}">
+        <span class="glyphicon glyphicon-plus"></span>Create New Project
+    </a>
+
+</div>
+
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>latitude</th>
+                <th>longitude</th>
+                <th>type</th>
+                <th>filename</th>
+                <th>description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in project_list %}
+                <tr>
+                    <td>{{ project.latitude }}</td>
+                    <td>{{ project.longitude }}</td>
+                    <td>{{ project.type }}</td>
+                    <td>{{ project.filename }}</td>
+                    <td>{{ project.description }}</td>
+
+                </tr>
+
+
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+
+
+
+{% endblock %}
