@@ -8,6 +8,7 @@ app_name='peoria'
 urlpatterns = [
     #/peoria/
     url(r'^$', views.home, name='home'),
+    url(r'^trash/$', views.trash, name='trash'),
 
     # /nfw/gripe/
     url(r'^gripe/$', views.GripeList.as_view(), name='gripe-list'),
