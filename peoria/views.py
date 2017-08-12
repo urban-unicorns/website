@@ -5,6 +5,12 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Gripe, Project
 
+from .forms import ProjectGeo
+
+
+
+from geopy.geocoders import Nominatim
+
 def home(request):
     myPavementProjects = Project.objects.filter(type='PV')
     myBikeProjects = Project.objects.filter(type='BK')
@@ -107,3 +113,27 @@ class ProjectDelete(DeleteView):
     model = Project
     success_url = reverse_lazy('peoria:project-list')
 
+
+
+def ProjectCreate2(request):
+    if request.method == 'POST':
+        form = ProjectGeo(request.POST)
+        if form.is_valid():
+            myAddress = form.cleaned_data['address']
+            myType = form.cleaned_data['type']
+            myDescription = form.cleaned_data['description']
+            geolocator = Nominatim()
+            location = geolocator.geocode(myAddress)
+            myLatitude = location.latitude
+            myLongitude = location.longitude
+            a = Project(latitude=myLatitude,
+                        longitude=myLongitude,
+                        type=myType,
+                        description=myDescription,
+                        )
+            a.save()
+        return HttpResponseRedirect(reverse('peoria:project-list'))
+
+    else:
+        form = ProjectGeo
+        return render(request, 'peoria/project-create.html', {'form':form})

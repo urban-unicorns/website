@@ -1,0 +1,18 @@
+{% extends 'peoria/base.html' %}
+{%  block body %}
+
+
+
+<form action="" method="post">
+    {%  csrf_token %}
+        {% include 'peoria/form-template.html' %}
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>
+
+
+
+{% endblock %}

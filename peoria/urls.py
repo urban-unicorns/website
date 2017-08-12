@@ -20,7 +20,9 @@ urlpatterns = [
 
     # /nfw/project/
     url(r'^project/$', views.ProjectList.as_view(), name='project-list'),
-    url(r'^project/create/$', views.ProjectCreate.as_view(), name='project-create'),
+#    url(r'^project/create/$', views.ProjectCreate.as_view(), name='project-create'),
+    url(r'^project/create/$', views.ProjectCreate2, name='project-create'),
+
     url(r'^project/(?P<pk>[0-9]+)/$', views.ProjectDetail.as_view(), name='project-detail'),
     url(r'^project/(?P<pk>[0-9]+)/update/$', views.ProjectUpdate.as_view(), name='project-update'),
     url(r'^project/(?P<pk>[0-9]+)/delete/$', views.ProjectDelete.as_view(), name='project-delete'),
