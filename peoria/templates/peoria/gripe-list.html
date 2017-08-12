@@ -4,6 +4,13 @@
     <h1>Gripe List</h1>
 
 
+
+
+
+
+
+
+
 <div class="container">
 
         <a href="{% url 'peoria:gripe-create' %}">
@@ -20,7 +27,7 @@
                 <th>Upvote</th>
                 <th>Name</th>
                 <th>Description</th>
-                <th>Location</th>
+                <th>Address</th>
                 <th>Votes</th>
             </tr>
         </thead>
@@ -32,9 +39,9 @@
 
 
                     </td>
-                    <td>{{ gripe.name }}</td>
+                    <td><a href="{% url 'peoria:gripe-detail' gripe.id %}">{{ gripe.name }}</td>
                     <td>{{ gripe.description }}</td>
-                    <td>{{ gripe.location }}</td>
+                    <td>{{ gripe.address }}</td>
                     <td>{{ gripe.votes }}</td>
 
                 </tr>

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Project
+from .models import Project, Gripe
 
 
 class ProjectGeo(forms.ModelForm):
@@ -9,3 +9,14 @@ class ProjectGeo(forms.ModelForm):
         model = Project
         fields = ['type',
                   'description',]
+
+
+class GripeGeo(forms.ModelForm):
+
+    class Meta:
+        model = Gripe
+        fields = ['name',
+                  'address',
+                  'description',]
+
+
