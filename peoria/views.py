@@ -5,7 +5,7 @@ from django.core.urlresolvers import reverse_lazy, reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Gripe, Project
 
-from .forms import ProjectGeo
+from .forms import ProjectGeo, GripeGeo
 
 
 
@@ -137,3 +137,29 @@ def ProjectCreate2(request):
     else:
         form = ProjectGeo
         return render(request, 'peoria/project-create.html', {'form':form})
+
+
+
+def GripeCreate2(request):
+    if request.method == 'POST':
+        form = GripeGeo(request.POST)
+        if form.is_valid():
+            myName = form.cleaned_data['name']
+            myAddress = form.cleaned_data['address']
+            myDescription = form.cleaned_data['description']
+            geolocator = Nominatim()
+            location = geolocator.geocode(myAddress)
+            myLatitude = location.latitude
+            myLongitude = location.longitude
+            a = Gripe(name=myName,
+                      address=myAddress,
+                      description=myDescription,
+                      latitude=myLatitude,
+                      longitude= myLongitude,
+                      )
+            a.save()
+        return HttpResponseRedirect(reverse('peoria:gripe-list'))
+
+    else:
+        form = GripeGeo
+        return render(request, 'peoria/gripe-create.html', {'form':form})
