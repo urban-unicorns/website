@@ -40,4 +40,15 @@ class GripeDelete(DeleteView):
     model = Gripe
     success_url = reverse_lazy('peoria:gripe-list')
 
+def GripeUpvote(request, pk):
+    try:
+        selected_gripe = Gripe.objects.get(pk=pk)
+    except (KeyError, Gripe.DoesNotExist):
+        return HttpResponse("Error, gripe does not exist")
+    else:
+        mynum = selected_gripe.votes
+        selected_gripe.votes = mynum + 1
+        selected_gripe.save()
+
+        return HttpResponseRedirect(reverse('peoria:gripe-list'))
 

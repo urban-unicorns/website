@@ -18,4 +18,4 @@ class Gripe(models.Model):
         return reverse('peoria:gripe-detail', kwargs={'pk':self.pk})
 
     class Meta:
-        ordering = ['votes']
+        ordering = ['-votes']

@@ -17,6 +17,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
+                <th>Upvote</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Location</th>
@@ -26,6 +27,11 @@
         <tbody>
             {% for gripe in gripe_list %}
                 <tr>
+                    <td>
+<a href = "{%  url 'peoria:gripe-upvote' gripe.pk %}">Upvote!</a>
+
+
+                    </td>
                     <td>{{ gripe.name }}</td>
                     <td>{{ gripe.description }}</td>
                     <td>{{ gripe.location }}</td>
@@ -38,6 +44,7 @@
 
         </tbody>
     </table>
+
 
 
 
