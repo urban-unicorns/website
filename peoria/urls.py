@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^project/(?P<pk>[0-9]+)/update/$', views.ProjectUpdate.as_view(), name='project-update'),
     url(r'^project/(?P<pk>[0-9]+)/delete/$', views.ProjectDelete.as_view(), name='project-delete'),
 
-
+    url(r'^chris/$', views.Chris, name='chris'),
 ]
 
 

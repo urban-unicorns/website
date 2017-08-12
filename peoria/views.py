@@ -11,6 +11,14 @@ from .forms import ProjectGeo, GripeGeo
 
 from geopy.geocoders import Nominatim
 
+
+
+def Chris(request):
+    return render(request, 'peoria/chris.html')
+
+
+
+
 def home(request):
     myPavementProjects = Project.objects.filter(type='PV')
     myBikeProjects = Project.objects.filter(type='BK')
